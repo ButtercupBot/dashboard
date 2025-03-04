@@ -1,4 +1,4 @@
-FROM oven/bun AS build
+FROM oven/bun
 
 WORKDIR /app
 
@@ -8,18 +8,7 @@ RUN bun remove butter-api
 RUN bun install
 
 COPY . .
-
-ENV NODE_ENV=production
-
 RUN bun run build
-
-FROM oven/bun
-
-WORKDIR /app
-
-COPY --from=build /app/build build
-
-ENV NODE_ENV=production
 
 EXPOSE 3000
 ENTRYPOINT ["bun", "./build"]
