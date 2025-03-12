@@ -7,11 +7,22 @@ import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
 import { Separator } from '$lib/components/ui/separator/index.js';
 import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 import { ModeWatcher } from 'mode-watcher';
+import { Toaster } from '$lib/components/ui/sonner/index.js';
+import { syncActiveGuild } from '$lib/utils';
+import { onMount } from 'svelte';
+import { activeGuildStore } from '$lib/stores';
 
 const { data, children } = $props();
+
+onMount(syncActiveGuild);
+let guild = $state('Guild')
+onMount(() => {
+	guild = $activeGuildStore?.name
+})
 </script>
 
 <ModeWatcher/>
+<Toaster />
 
 {#if !data.loggedIn}
 <AlertDialog.Root open={true}>
@@ -36,7 +47,7 @@ const { data, children } = $props();
 				<Breadcrumb.Root>
 					<Breadcrumb.List>
 						<Breadcrumb.Item class="hidden md:block">
-							<Breadcrumb.Link href="/">Guild</Breadcrumb.Link>
+							<Breadcrumb.Link href="/">{guild}</Breadcrumb.Link>
 						</Breadcrumb.Item>
 						{#if page.url.pathname.split('?')[0].split('/').slice(2).length > 0}
 							{#each page.url.pathname.split('?')[0].split('/').slice(2) as action}
