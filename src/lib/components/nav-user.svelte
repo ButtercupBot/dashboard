@@ -9,9 +9,10 @@ import Moon from 'lucide-svelte/icons/moon';
 import Sparkles from 'lucide-svelte/icons/sparkles';
 import Sun from 'lucide-svelte/icons/sun';
 import BadgePlus from 'lucide-svelte/icons/badge-plus';
+import Settings from 'lucide-svelte/icons/settings';
 import { toggleMode } from 'mode-watcher';
 
-let { user }: { user: { username: string; avatar: string } } = $props()
+let { user }: { user: { username: string; avatar: string } } = $props();
 const sidebar = useSidebar();
 </script>
 
@@ -62,6 +63,10 @@ const sidebar = useSidebar();
 					<DropdownMenu.Item>
 						<BadgePlus />
 						Add to Server
+					</DropdownMenu.Item>
+					<DropdownMenu.Item onclick={() => location.href = '/user/settings'}>
+						<Settings />
+						Settings
 					</DropdownMenu.Item>
 					<DropdownMenu.Item onclick={toggleMode}>
 						<Sun class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"/>

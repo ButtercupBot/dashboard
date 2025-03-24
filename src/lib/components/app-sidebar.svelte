@@ -38,7 +38,6 @@ for (const guild of guilds) {
 	import SquareTerminal from "lucide-svelte/icons/square-terminal";
 	import Plugin from 'lucide-svelte/icons/plug-zap'
 
-	// This is sample data for things i plan to add
 	const data = {
 		navMain: [
 			{
@@ -77,6 +76,10 @@ for (const guild of guilds) {
 					{
 						title: "Users",
 						url: "#",
+					},
+					{
+						title: "ButterScripts",
+						url: "/butter"
 					},
 					{
 						title: "Stores",

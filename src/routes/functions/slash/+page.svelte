@@ -13,9 +13,6 @@ import { onMount } from 'svelte';
 import { get } from 'svelte/store';
 import { activeGuildStore } from '$lib/stores';
 import { syncActiveGuild } from '$lib/utils';
-import ButterEditor from '$lib/components/butter-editor.svelte';
-
-const { data }: { data: { roles: Role[] } } = $props();
 
 let allowedRole = $state('Select a Role...');
 let allowedRoleId = $state('');
@@ -58,7 +55,7 @@ const addArg = () => {
     command.args.push('new arg');
 };
 
-const butter = `const Event = (command: string, arg1: string) => {
+const butter = `const Interaction = (command: string, arg1: string) => {
 }`;
 </script>
 
@@ -113,5 +110,3 @@ const butter = `const Event = (command: string, arg1: string) => {
     </Card.Content>
 </Card.Root>
 </div>
-
-<ButterEditor value={butter}/>
