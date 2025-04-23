@@ -70,20 +70,12 @@ for (const guild of guilds) {
 				icon: BookOpen,
 				items: [
 					{
-						title: "Variables",
-						url: "#",
-					},
-					{
 						title: "Users",
 						url: "#",
 					},
 					{
-						title: "ButterScripts",
-						url: "/butter"
-					},
-					{
 						title: "Stores",
-						url: "#",
+						url: "/data/stores",
 					},
 				],
 			},
