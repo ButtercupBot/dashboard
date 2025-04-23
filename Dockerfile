@@ -11,4 +11,5 @@ COPY . .
 RUN bun run build
 
 EXPOSE 3000
+ENV ORIGIN=https://dash.buttercup.boo
 ENTRYPOINT ["bun", "./build"]
