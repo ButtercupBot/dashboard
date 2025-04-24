@@ -55,8 +55,6 @@ const addArg = () => {
     command.args.push('new arg');
 };
 
-const butter = `const Interaction = (command: string, arg1: string) => {
-}`;
 </script>
 
 <div class="flex items-center justify-center [&>div]:w-full">
